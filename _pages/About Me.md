@@ -22,10 +22,15 @@ bookmark: true
 | 2024        | KAIST IDEC           | System Semiconductor : PMIC         |
 | 2025 ~      | KCCISTC              | AI System Semiconductor             |
 
-
 # Languages
 ---
 
 
 # Tools
 ---
+
+| 종류         | 수준                | 내용                                |
+|:---:|:---:|:---:|
+| Cadence | 5/5 | LDO , DC-DC buck converter 설계 |
+| Synopsys |  |  |
+| Kicad | 3/5 | PCB 설계 |
