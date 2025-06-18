@@ -6,9 +6,11 @@ thumbnail: "/assets/img/vlsi/DAY03/1.png"
 
 # Sweep
 ---
-![text](../../../assets/img/vlsi/DAY03/1.png) 
+![text](../../../assets/img/vlsi/DAY03/1.png) **[Variables] - [Design Parameterization]**
+
 ![text](../../../assets/img/vlsi/DAY03/2.png) 
-![text](../../../assets/img/vlsi/DAY03/3.png) 
+![text](../../../assets/img/vlsi/DAY03/3.png) **[Tools] - [Parametric Analyses]**
+
 ![text](../../../assets/img/vlsi/DAY03/4.png) 
 ![text](../../../assets/img/vlsi/DAY03/5.png) 
 ![text](../../../assets/img/vlsi/DAY03/6.png) 
