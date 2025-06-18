@@ -6,18 +6,23 @@ date: "2025-06-16"
 # Terminal
 ---
 ![alt text](../../../assets/img/vlsi/1.png) **Terminal에서 Custom Compiler 실행**
+
 ![alt text](../../../assets/img/vlsi/2.png) **Custom Compiler 실행창**
 
 # Custom Compiler
 ---
 ![alt text](../../../assets/img/vlsi/3.png) **Library 생성**
+
 ![alt text](../../../assets/img/vlsi/4.png) **Cell 생성**
+
 ![alt text](../../../assets/img/vlsi/5.png) **Grid 설정**
 
 # Schematic
 ---
 ![alt text](../../../assets/img/vlsi/6.png) **Instance에서 mosfet 검색**
+
 ![alt text](../../../assets/img/vlsi/10.png) **Inverter : nmos width = 0.5u , pmos width = 1u 설정**
+
 ![alt text](../../../assets/img/vlsi/11.png) **Check and Save**
 
 ![alt text](../../../assets/img/vlsi/12.png) **Input , Ouput 설정**
