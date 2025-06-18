@@ -13,11 +13,17 @@ bookmark: true
 # Introduction
 ---
 
-# Careers
+# Education
 ---
+```
+| 2018 ~ 2024 | Kyung Hee University | Electrical and Electronics Engineering |
+| 2024 ~ 2024 |KAIST IDEC| System Semiconductor : PMIC |
+| 2025 ~ |KCCISTC| AI System Semiconductor |
+```
 
 # Languages
 ---
+
 
 # Tools
 ---
