@@ -27,7 +27,7 @@ thumbnail: "/assets/img/vlsi/DAY03/1.png"
 
 # Schematic
 ---
-![alt text](../../../assets/img/vlsi/DAY03/14.png)
+![alt text](../../../assets/img/vlsi/DAY03/14.png) **nmos width = 0.5u 설정**
 
 # Symbol
 ---
@@ -41,10 +41,10 @@ thumbnail: "/assets/img/vlsi/DAY03/1.png"
 
 # Simulation
 ---
-![text](../../../assets/img/vlsi/DAY03/19.png)
-![text](../../../assets/img/vlsi/DAY03/20.png)
-![text](../../../assets/img/vlsi/DAY03/21.png)
-![text](../../../assets/img/vlsi/DAY03/22.png) **0.5um ~ 1.5um**
+![text](../../../assets/img/vlsi/DAY03/19.png) **VINB 세팅**
+![text](../../../assets/img/vlsi/DAY03/20.png) **pmos width = 0.5u ~ 1.5u / stepsize = 0.1u 세팅**
+![text](../../../assets/img/vlsi/DAY03/21.png) 
+![text](../../../assets/img/vlsi/DAY03/22.png) **Simulation 결과**
 
-![text](../../../assets/img/vlsi/DAY03/23.png)
-![text](../../../assets/img/vlsi/DAY03/24.png) **0.85um ~ 0.95um**
+![text](../../../assets/img/vlsi/DAY03/23.png) **pmos width = 0.85u ~ 0.95u / stepsize = 0.01u 세팅**
+![text](../../../assets/img/vlsi/DAY03/24.png) **Simulation 결과**
