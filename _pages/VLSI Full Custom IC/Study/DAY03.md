@@ -42,9 +42,12 @@ thumbnail: "/assets/img/vlsi/DAY03/1.png"
 # Simulation
 ---
 ![text](../../../assets/img/vlsi/DAY03/19.png) **VINB 세팅**
+
 ![text](../../../assets/img/vlsi/DAY03/20.png) **pmos width = 0.5u ~ 1.5u / stepsize = 0.1u 세팅**
+
 ![text](../../../assets/img/vlsi/DAY03/21.png) 
 ![text](../../../assets/img/vlsi/DAY03/22.png) **Simulation 결과**
 
 ![text](../../../assets/img/vlsi/DAY03/23.png) **pmos width = 0.85u ~ 0.95u / stepsize = 0.01u 세팅**
+
 ![text](../../../assets/img/vlsi/DAY03/24.png) **Simulation 결과**
