@@ -1,5 +1,5 @@
 ---
-title: "DAY01"
+title: "DAY01-02"
 date: "2025-06-16"
 thumbnail: "/assets/img/vlsi/DAY01/1.png"
 ---
