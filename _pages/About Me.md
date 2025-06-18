@@ -17,7 +17,7 @@ bookmark: true
 ---
 
 | 기간         | 기관                | 과정                                |
-|--------------|---------------------|--------------------------------------|
+|:---:|:---:|:---:|
 | 2018 ~ 2024 | Kyung Hee University | Electrical and Electronics Engineering |
 | 2024        | KAIST IDEC           | System Semiconductor : PMIC         |
 | 2025 ~      | KCCISTC              | AI System Semiconductor             |
