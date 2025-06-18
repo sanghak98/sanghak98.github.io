@@ -1,6 +1,7 @@
 ---
 title: "DAY01"
 date: "2025-06-16"
+thumbnail: "/assets/img/vlsi/DAY01/1.png"
 ---
 
 # Terminal
