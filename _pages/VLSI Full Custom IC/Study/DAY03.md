@@ -38,3 +38,13 @@ thumbnail: "/assets/img/vlsi/DAY03/1.png"
 # Testbench
 ---
 ![alt text](../../../assets/img/vlsi/DAY03/18.png)
+
+# Simulation
+---
+![text](../../../assets/img/vlsi/DAY03/19.png)
+![text](../../../assets/img/vlsi/DAY03/20.png)
+![text](../../../assets/img/vlsi/DAY03/21.png)
+![text](../../../assets/img/vlsi/DAY03/22.png) **0.5um ~ 1.5um**
+
+![text](../../../assets/img/vlsi/DAY03/23.png)
+![text](../../../assets/img/vlsi/DAY03/24.png) **0.85um ~ 0.95um**
