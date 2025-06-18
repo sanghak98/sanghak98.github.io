@@ -15,6 +15,7 @@ bookmark: true
 
 # Education
 ---
+
 | 기간         | 기관                | 과정                                |
 |--------------|---------------------|--------------------------------------|
 | 2018 ~ 2024 | Kyung Hee University | Electrical and Electronics Engineering |
