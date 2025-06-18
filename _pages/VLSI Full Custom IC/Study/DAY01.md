@@ -6,6 +6,7 @@ date: "2025-06-16"
 # Terminal
 ---
 ![alt text](../../../assets/img/vlsi/DAY01/1.png) **Terminal에서 Custom Compiler 실행**
+
 ![alt text](../../../assets/img/vlsi/DAY01/2.png) **Custom Compiler 실행창**
 
 # Custom Compiler
