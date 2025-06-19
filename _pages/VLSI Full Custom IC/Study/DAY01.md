@@ -49,7 +49,7 @@ thumbnail: "/assets/img/vlsi/DAY01/1.png"
 ![text](../../../assets/img/vlsi/DAY01/23.png) 
 ![text](../../../assets/img/vlsi/DAY01/24.png) **Simulation 세팅**
 
-![text](../../../assets/img/vlsi/DAY01/25.png) **Simulation 결과**
+![text](../../../assets/img/vlsi/DAY01/25.png)**Simulation 결과**
 
 # Error
 ---
