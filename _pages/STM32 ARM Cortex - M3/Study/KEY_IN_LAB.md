@@ -18,9 +18,11 @@ void Main(void)
 	Sys_Init();
 	Uart_Printf("KEY Input Test #1\n");
 
-
+	// KEY[1:0], GPB[7:6]을 GPIO 입력으로 선언
 	Macro_Write_Block(GPIOB->CRL, 0xff, 0x44, 24);
 
+	// KEY0이 눌렸으면 LED0를 ON, 안 눌렸으면 OFF
+	// KEY1이 눌렸으면 LED1를 ON, 안 눌렸으면 OFF
 	for(;;)
 	{
 		if(Macro_Check_Bit_Clear(GPIOB->IDR, 6)) Macro_Set_Bit(value, 0);
@@ -44,8 +46,11 @@ void Main(void)
 	Sys_Init();
 	Uart_Printf("KEY Input Test #2\n");
 
-	Macro_Write_Block(GPIOB->CRL, 0xff, 0x44, 24);
+	// KEY[1:0], GPB[7:6]을 GPIO 입력으로 선언
+	Macro_언Write_Block(GPIOB->CRL, 0xff, 0x44, 24);
 
+	// KEY0이 눌렸으면 LED0를 ON, 안 눌렸으면 OFF
+	// KEY1이 눌렸으면 LED1를 ON, 안 눌렸으면 OFF
 	for(;;)
 	{
 		Macro_Write_Block(GPIOB->ODR,0x3,Macro_Extract_Area(GPIOB->IDR,0x3,6),8);
@@ -65,8 +70,10 @@ void Main(void)
 	Sys_Init();
 	Uart_Printf("KEY Input Toggling #1\n");
 
+	// KEY[1:0], GPB[7:6]을 GPIO 입력으로 선언
 	Macro_Write_Block(GPIOB->CRL, 0xff, 0x44, 24);
 
+	// KEY0가 눌릴때마다 LED0의 값을 Toggling
 	for(;;)
 	{
 		if(Macro_Check_Bit_Clear(GPIOB->IDR, 6))
@@ -87,8 +94,10 @@ void Main(void)
 	Sys_Init();
 	Uart_Printf("KEY Input Toggling #2\n");
 
+	// KEY[1:0], GPB[7:6]을 GPIO 입력으로 선언
 	Macro_Write_Block(GPIOB->CRL, 0xff, 0x44, 24);
 
+	// KEY0가 눌릴때마다 LED0의 값을 Toggling
 	for(;;)
 	{
 		if(Macro_Check_Bit_Clear(GPIOB->IDR, 6))
@@ -112,8 +121,10 @@ void Main(void)
 	Sys_Init();
 	Uart_Printf("KEY Input Toggling #3\n");
 
+	// KEY[1:0], GPB[7:6]을 GPIO 입력으로 선언
 	Macro_Write_Block(GPIOB->CRL, 0xff, 0x44, 24);
 
+	// KEY0가 눌릴때마다 LED0의 값을 Toggling
 	for(;;)
 	{
 		if((interlock != 0) && Macro_Check_Bit_Clear(GPIOB->IDR, 6))

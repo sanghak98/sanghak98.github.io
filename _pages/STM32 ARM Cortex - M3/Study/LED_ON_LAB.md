@@ -15,7 +15,10 @@ void Main(void)
 {
     RCC_APB2ENR |= (1<<3);
  
+    // GPB[9:8]을 출력모드로 설정
     GPIOB_CRH = 0x66 << 0;
+
+    // GPB[9:8]에 LED0은 OFF, LED1은 ON
     GPIOB_ODR = 0x01 << 8;
 }
 ```

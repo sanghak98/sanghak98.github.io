@@ -40,6 +40,7 @@ void Main(void)
 {
     RCC->APB2ENR |= (1<<3);
  
+    // LED0을 ON, LED을 OFF
     GPIOB->CRH = (GPIOB->CRH & ~(0xff<<0)) | (0x66<<0);
     GPIOB->ODR = (GPIOB->ODR & ~(0x3<<8)) | (0x1<<8);
 }
@@ -52,6 +53,7 @@ void Main(void)
 {
     Macro_Set_Bit(RCC->APB2ENR, 3);
  
+    // LED0을 ON, LED을 OFF
     Macro_Write_Block(GPIOB->CRH, 0xff, 0x66, 0);
     Macro_Write_Block(GPIOB->ODR, 0x3, 0x2, 8);
 }
@@ -64,9 +66,11 @@ void Main(void)
  
     Macro_Set_Bit(RCC->APB2ENR, 3);
  
+    // 초기에 LED 모두 OFF
     Macro_Write_Block(GPIOB->CRH, 0xff, 0x66, 0);
     Macro_Set_Area(GPIOB->ODR, 0x3, 8);
  
+    // LED 반전 및 Delay 설정
     for(;;)
     {
         Macro_Invert_Area(GPIOB->ODR, 0x3, 8);
