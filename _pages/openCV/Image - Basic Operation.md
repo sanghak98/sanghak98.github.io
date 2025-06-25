@@ -181,48 +181,43 @@ cv2.destroyAllWindows()
 **Source.jpeg**
 >![alt text](../../assets/img/opencv/dino.jpeg)
 
+
 **jpeg to png**
 >![alt text](../../assets/img/opencv/output.png)
 
+
 **Cropped & Resized**
->![alt text](<../../assets/img/opencv/Cropped image.jpg>)<br/>
-Cropped<br/>
-![alt text](<../../assets/img/opencv/Resized image.jpg>)<br/>
-Resized
+>![alt text](<../../assets/img/opencv/Cropped image.jpg>Cropped<br/>
+![alt text](<../../assets/img/opencv/Resized image.jpg>)Resized
+
 
 **Reversed**
 >![alt text](../../assets/img/opencv/reverse.jpg)
 
+
 **Threshold**
 >![alt text](../../assets/img/opencv/threshold.jpg)
+
 
 **Blur**
 >![alt text](../../assets/img/opencv/blur.jpg)
 
+
 **Sobel & Laplacian & Canny**
->![alt text](../../assets/img/opencv/sobel.jpg)<br/>
-Sobel<br/>
-![alt text](../../assets/img/opencv/laplacian.jpg)<br/>
-Laplacian<br/>
-![alt text](../../assets/img/opencv/canny.jpg)<br/>
-Canny Edge Detection
+>![alt text](../../assets/img/opencv/sobel.jpg)Sobel<br/>
+![alt text](../../assets/img/opencv/laplacian.jpg)Laplacian<br/>
+![alt text](../../assets/img/opencv/canny.jpg)Canny Edge Detection
+
 
 **BGR & HSV**
->![alt text](../../assets/img/opencv/strawberry.jpeg)<br/>
-source<br/>
-![alt text](<../../assets/img/opencv/BGR Channels output.jpg>)<br/>
-BGR<br/>
-![alt text](<../../assets/img/opencv/Split HSV output.jpg>)<br/>
-HSV
+>![alt text](../../assets/img/opencv/strawberry.jpeg)source<br/>
+![alt text](<../../assets/img/opencv/BGR Channels output.jpg>)BGR<br/>
+![alt text](<../../assets/img/opencv/Split HSV output.jpg>)HSV
+
 
 **Split & Inverse**
->![alt text](../../assets/img/opencv/tomato.jpeg)<br/>
-source<br/>
-![alt text](../../assets/img/opencv/b.jpg)<br/>
-b<br/>
-![alt text](../../assets/img/opencv/g.jpg)<br/>
-g<br/>
-![alt text](../../assets/img/opencv/r.jpg)<br/>
-r<br/>
-![alt text](../../assets/img/opencv/inverse.jpg)<br/>
-inverse
+>![alt text](../../assets/img/opencv/tomato.jpeg)source<br/>
+![alt text](../../assets/img/opencv/b.jpg)b<br/>
+![alt text](../../assets/img/opencv/g.jpg)g<br/>
+![alt text](../../assets/img/opencv/r.jpg)r<br/>
+![alt text](../../assets/img/opencv/inverse.jpg)inverse
