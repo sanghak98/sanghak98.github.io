@@ -179,41 +179,47 @@ cv2.destroyAllWindows()
 # 분석
 ---
 **Source.jpeg**
-
+\
 ![alt text](../../assets/img/opencv/dino.jpeg)
 
 **jpeg to png**
-
+\
 ![alt text](../../assets/img/opencv/output.png)
 
 **Cropped & Resized**
-
+\
 ![alt text](<../../assets/img/opencv/Cropped image.jpg>)
+>Cropped
 
 ![alt text](<../../assets/img/opencv/Resized image.jpg>)
+>Resized
 
 **Reversed**
-
+\
 ![alt text](../../assets/img/opencv/reverse.jpg)
 
 **Threshold**
-
+\
 ![alt text](../../assets/img/opencv/threshold.jpg)
 
 **Blur**
-
+\
 ![alt text](../../assets/img/opencv/blur.jpg)
 
 **Sobel & Laplacian & Canny**
-
+\
 ![alt text](../../assets/img/opencv/sobel.jpg)
+>Sobel
 
 ![alt text](../../assets/img/opencv/laplacian.jpg)
+>Laplacian
 
 ![alt text](../../assets/img/opencv/canny.jpg)
+>Canny Edge Detection
 
+\
 **BGR & HSV**
-
+\
 ![alt text](../../assets/img/opencv/strawberry.jpeg)
 >source
 
@@ -223,8 +229,9 @@ cv2.destroyAllWindows()
 ![alt text](<../../assets/img/opencv/Split HSV output.jpg>)
 >HSV
 
+\
 **Split & Inverse**
-
+\
 ![alt text](../../assets/img/opencv/tomato.jpeg)
 >source
 
