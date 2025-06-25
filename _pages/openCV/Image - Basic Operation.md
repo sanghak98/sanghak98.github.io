@@ -225,7 +225,7 @@ cv2.destroyAllWindows()
 
 **Split & Inverse**
 >![alt text](../../assets/img/opencv/tomato.jpeg)source<br/>
-![alt text](../../assets/img/opencv/b.jpg)b<br/>
-![alt text](../../assets/img/opencv/g.jpg)g<br/>
-![alt text](../../assets/img/opencv/r.jpg)r<br/>
-![alt text](../../assets/img/opencv/inverse.jpg)inverse
+![alt text](../../assets/img/opencv/b.jpg)B<br/>
+![alt text](../../assets/img/opencv/g.jpg)G<br/>
+![alt text](../../assets/img/opencv/r.jpg)R<br/>
+![alt text](../../assets/img/opencv/inverse.jpg)Inverse
