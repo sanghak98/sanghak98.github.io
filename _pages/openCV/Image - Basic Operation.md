@@ -187,15 +187,13 @@ cv2.destroyAllWindows()
 ![alt text](../../assets/img/opencv/output.png)
 
 **Cropped & Resized**
-\
 ![alt text](<../../assets/img/opencv/Cropped image.jpg>)
 >Cropped
 
 ![alt text](<../../assets/img/opencv/Resized image.jpg>)
 >Resized
-
+<br/>
 **Reversed**
-\
 ![alt text](../../assets/img/opencv/reverse.jpg)
 
 **Threshold**
