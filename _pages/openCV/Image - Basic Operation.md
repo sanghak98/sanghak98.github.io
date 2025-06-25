@@ -31,37 +31,6 @@ else:
 
 cv2.destroyAllWindows()
 ```
-**BGR & HSV**
-```
-import numpy as np
-import cv2
-
-# 이미지 파일을 Read 하고 Color space 정보 출력
-color = cv2.imread("strawberry.jpeg", cv2.IMREAD_COLOR)
-# color = cv2.imread("strawberry_dark.jpeg", cv2.IMREAD_COLOR)
-print(color.shape)
-
-height,width,channels = color.shape
-cv2.imshow("Original Image",color)
-
-# Color channel을 B,G,R로 분할하여 출력
-b,g,r = cv2.split(color)
-rgb_split = np.concatenate((b,g,r),axis=1)
-cv2.imshow("BGR Channels",rgb_split)
-cv2.imwrite("BGR Channels output.jpg",rgb_split)
-
-# 색공간을 BGR 에서 HSV 로 변환
-hsv = cv2.cvtColor(color, cv2.COLOR_BGR2HSV)
-
-# Channel 을 H,S,V 로 분할하여 출력
-h,s,v = cv2.split(hsv)
-hsv_split = np.concatenate((h,s,v),axis=1)
-cv2.imshow("Split HSV",hsv_split)
-cv2.imwrite("Split HSV output.jpg",hsv_split)
-
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-```
 **Cropped & Resized**
 ```
 import numpy as np
@@ -153,6 +122,37 @@ cv2.imwrite("canny.jpg", canny)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
+**BGR & HSV**
+```
+import numpy as np
+import cv2
+
+# 이미지 파일을 Read 하고 Color space 정보 출력
+color = cv2.imread("strawberry.jpeg", cv2.IMREAD_COLOR)
+# color = cv2.imread("strawberry_dark.jpeg", cv2.IMREAD_COLOR)
+print(color.shape)
+
+height,width,channels = color.shape
+cv2.imshow("Original Image",color)
+
+# Color channel을 B,G,R로 분할하여 출력
+b,g,r = cv2.split(color)
+rgb_split = np.concatenate((b,g,r),axis=1)
+cv2.imshow("BGR Channels",rgb_split)
+cv2.imwrite("BGR Channels output.jpg",rgb_split)
+
+# 색공간을 BGR 에서 HSV 로 변환
+hsv = cv2.cvtColor(color, cv2.COLOR_BGR2HSV)
+
+# Channel 을 H,S,V 로 분할하여 출력
+h,s,v = cv2.split(hsv)
+hsv_split = np.concatenate((h,s,v),axis=1)
+cv2.imshow("Split HSV",hsv_split)
+cv2.imwrite("Split HSV output.jpg",hsv_split)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
 **Split & Inverse**
 ```
 import cv2
@@ -178,3 +178,64 @@ cv2.destroyAllWindows()
 ```
 # 분석
 ---
+**Source.jpeg**
+
+![alt text](../../assets/img/opencv/dino.jpeg)
+
+**jpeg to png**
+
+![alt text](../../assets/img/opencv/output.png)
+
+**Cropped & Resized**
+
+![alt text](<../../assets/img/opencv/Cropped image.jpg>)
+
+![alt text](<../../assets/img/opencv/Resized image.jpg>)
+
+**Reversed**
+
+![alt text](../../assets/img/opencv/reverse.jpg)
+
+**Threshold**
+
+![alt text](../../assets/img/opencv/threshold.jpg)
+
+**Blur**
+
+![alt text](../../assets/img/opencv/blur.jpg)
+
+**Sobel & Laplacian & Canny**
+
+![alt text](../../assets/img/opencv/sobel.jpg)
+
+![alt text](../../assets/img/opencv/laplacian.jpg)
+
+![alt text](../../assets/img/opencv/canny.jpg)
+
+**BGR & HSV**
+
+![alt text](../../assets/img/opencv/strawberry.jpeg)
+>source
+
+![alt text](<../../assets/img/opencv/BGR Channels output.jpg>)
+>BGR
+
+![alt text](<../../assets/img/opencv/Split HSV output.jpg>)
+>HSV
+
+**Split & Inverse**
+
+![alt text](../../assets/img/opencv/tomato.jpeg)
+>source
+
+![alt text](../../assets/img/opencv/b.jpg)
+>b
+
+![alt text](../../assets/img/opencv/g.jpg)
+>g
+
+![alt text](../../assets/img/opencv/r.jpg)
+>r
+
+![alt text](../../assets/img/opencv/inverse.jpg)
+>inverse
