@@ -1,5 +1,5 @@
 ---
-title: "Camera - Basic Operation"
+title: "test"
 thumbnail: "/assets/img/thumbnail/opencv.png"
 ---
 **ASD**
