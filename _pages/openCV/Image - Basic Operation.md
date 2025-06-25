@@ -181,39 +181,47 @@ cv2.destroyAllWindows()
 **Source.jpeg**
 >![alt text](../../assets/img/opencv/dino.jpeg)
 
+<br/>
 
 **jpeg to png**
 >![alt text](../../assets/img/opencv/output.png)
 
+<br/>
 
 **Cropped & Resized**
->![alt text](<../../assets/img/opencv/Cropped image.jpg>Cropped<br/>
+>![alt text](<../../assets/img/opencv/Cropped image.jpg>)Cropped<br/>
 ![alt text](<../../assets/img/opencv/Resized image.jpg>)Resized
 
+<br/>
 
 **Reversed**
 >![alt text](../../assets/img/opencv/reverse.jpg)
 
+<br/>
 
 **Threshold**
 >![alt text](../../assets/img/opencv/threshold.jpg)
 
+<br/>
 
 **Blur**
 >![alt text](../../assets/img/opencv/blur.jpg)
 
+<br/>
 
 **Sobel & Laplacian & Canny**
 >![alt text](../../assets/img/opencv/sobel.jpg)Sobel<br/>
 ![alt text](../../assets/img/opencv/laplacian.jpg)Laplacian<br/>
 ![alt text](../../assets/img/opencv/canny.jpg)Canny Edge Detection
 
+<br/>
 
 **BGR & HSV**
 >![alt text](../../assets/img/opencv/strawberry.jpeg)source<br/>
 ![alt text](<../../assets/img/opencv/BGR Channels output.jpg>)BGR<br/>
 ![alt text](<../../assets/img/opencv/Split HSV output.jpg>)HSV
 
+<br/>
 
 **Split & Inverse**
 >![alt text](../../assets/img/opencv/tomato.jpeg)source<br/>
