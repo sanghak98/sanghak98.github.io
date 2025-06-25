@@ -217,14 +217,14 @@ cv2.destroyAllWindows()
 <br/>
 
 **BGR & HSV**
->![alt text](../../assets/img/opencv/strawberry.jpeg)source<br/>
+>![alt text](../../assets/img/opencv/strawberry.jpeg)Source<br/>
 ![alt text](<../../assets/img/opencv/BGR Channels output.jpg>)BGR<br/>
 ![alt text](<../../assets/img/opencv/Split HSV output.jpg>)HSV
 
 <br/>
 
 **Split & Inverse**
->![alt text](../../assets/img/opencv/tomato.jpeg)source<br/>
+>![alt text](../../assets/img/opencv/tomato.jpeg)Source<br/>
 ![alt text](../../assets/img/opencv/b.jpg)B<br/>
 ![alt text](../../assets/img/opencv/g.jpg)G<br/>
 ![alt text](../../assets/img/opencv/r.jpg)R<br/>
