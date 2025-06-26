@@ -187,8 +187,6 @@ plot_decision_boundary(X_and, y_and, ppn_and)
 
 이 문제는 선형적으로 분리할 수 없는 데이터이기 때문에, 단일 퍼셉트론으로는 어떠한 선형 결정 경계로도 올바른 출력을 분리해낼 수 없음.
 
-<br/>
-
 **MLP(Multi Layer Perceptron)의 필요성**
 비선형적으로 분리 가능한 데이털르 해결하기 위해서는 하나 이상의 은닉층을 갖는 다층 퍼셉트론이 필요함. 은닉층을 통해 비선형성을 학습할 수 있고, 이로 인해 더 복잡한 함수도 근사할 수 있게 됨.
 
@@ -211,8 +209,6 @@ plot_decision_boundary(X_and, y_and, ppn_and)
 
 >Sigmoid<br/>
 출력이 0과 1 사이의 확률로 해석 될 수 있음.
-
-<br/>
 
 **Epoch와 Overfitting 문제**
 모델을 학습할 때 전체 데이터셋을 여러 번 반복해서 학습하는 과정을 Epoch이라고 함.
