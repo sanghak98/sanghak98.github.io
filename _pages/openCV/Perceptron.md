@@ -221,6 +221,124 @@ plot_decision_boundary(X_and, y_and, ppn_and)
 - 검증 손실이 더 이상 개선되지 않으면 학습을 조기 종료.
 
 **XOR Gate by MLP**
+```
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.colors import ListedColormap
+
+# XOR 데이터셋
+X_xor = np.array([[0,0],[0,1],[1,0],[1,1]])
+y_xor = np.array([[0],[1],[1],[0]])  # 2D로 reshape
+
+# 활성화 함수
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+def sigmoid_deriv(x):
+    return sigmoid(x) * (1 - sigmoid(x))
+
+def relu(x):
+    return np.maximum(0, x)
+
+def relu_deriv(x):
+    return (x > 0).astype(float)
+
+# MLP 클래스
+class SimpleMLP:
+    def __init__(self, input_size=2, hidden_size=4, lr=0.1, epochs=10000):
+        self.lr = lr
+        self.epochs = epochs
+        # 가중치 초기화
+        self.W1 = np.random.randn(input_size, hidden_size)
+        self.b1 = np.zeros((1, hidden_size))
+        self.W2 = np.random.randn(hidden_size, 1)
+        self.b2 = np.zeros((1, 1))
+        self.losses = []
+
+    def train(self, X, y):
+        for epoch in range(self.epochs):
+            # 순전파
+            z1 = X @ self.W1 + self.b1
+            a1 = relu(z1)
+            z2 = a1 @ self.W2 + self.b2
+            a2 = sigmoid(z2)
+
+            # 손실 계산 (binary cross-entropy)
+            loss = -np.mean(y * np.log(a2 + 1e-8) + (1 - y) * np.log(1 - a2 + 1e-8))
+            self.losses.append(loss)
+
+            # 역전파
+            dz2 = a2 - y
+            dW2 = a1.T @ dz2
+            db2 = np.sum(dz2, axis=0, keepdims=True)
+
+            da1 = dz2 @ self.W2.T
+            dz1 = da1 * relu_deriv(z1)
+            dW1 = X.T @ dz1
+            db1 = np.sum(dz1, axis=0, keepdims=True)
+
+            # 파라미터 업데이트
+            self.W1 -= self.lr * dW1
+            self.b1 -= self.lr * db1
+            self.W2 -= self.lr * dW2
+            self.b2 -= self.lr * db2
+
+            # 로그 출력
+            if epoch % 1000 == 0:
+                print(f"Epoch {epoch}, Loss: {loss:.4f}")
+
+    def predict(self, X):
+        z1 = X @ self.W1 + self.b1
+        a1 = relu(z1)
+        z2 = a1 @ self.W2 + self.b2
+        a2 = sigmoid(z2)
+        return (a2 > 0.5).astype(int)
+
+# XOR 학습
+mlp_xor = SimpleMLP()
+mlp_xor.train(X_xor, y_xor)
+
+# 예측 결과
+print("\nXOR Gate Test:")
+for x in X_xor:
+    pred = mlp_xor.predict(np.array([x]))[0][0]
+    print(f"Input: {x}, Predicted Output: {pred}")
+
+# 결정 경계 시각화 함수
+def plot_decision_boundary(X, y, model):
+    cmap_light = ListedColormap(['#FFAAAA', '#AAAAFF'])
+    cmap_bold = ListedColormap(['#FF0000', '#0000FF'])
+
+    h = .02
+    x_min, x_max = X[:, 0].min() - 0.5, X[:, 0].max() + 0.5
+    y_min, y_max = X[:, 1].min() - 0.5, X[:, 1].max() + 0.5
+    xx, yy = np.meshgrid(np.arange(x_min, x_max, h),
+                         np.arange(y_min, y_max, h))
+
+    grid = np.c_[xx.ravel(), yy.ravel()]
+    Z = model.predict(grid)
+    Z = Z.reshape(xx.shape)
+
+    plt.figure(figsize=(8, 6))
+    plt.contourf(xx, yy, Z, cmap=cmap_light)
+    plt.scatter(X[:, 0], X[:, 1], c=y.ravel(), cmap=cmap_bold, edgecolor='k', s=100)
+    plt.title("MLP Decision Boundary (XOR Gate)")
+    plt.xlabel("Input 1")
+    plt.ylabel("Input 2")
+    plt.show()
+
+# 결정 경계 시각화
+plot_decision_boundary(X_xor, y_xor, mlp_xor)
+
+# 손실 시각화
+plt.figure(figsize=(8, 5))
+plt.plot(mlp_xor.losses)
+plt.xlabel("Epochs")
+plt.ylabel("Loss")
+plt.title("Loss Over Time (XOR Gate)")
+plt.grid(True)
+plt.show()
+```
 >![alt text](../../assets/img/opencv/perceptron/xor_mlp_result.png)예상결과<br/>
 ![alt text](../../assets/img/opencv/perceptron/xor_mlp_d_b.png)게이트 결정 결계 시각화<br/>
-![alt text](../../assets/img/opencv/perceptron/xor_loss.png)Loss 시각화
+![alt text](../../assets/img/opencv/perceptron/xor_loss.png)손실시각화
