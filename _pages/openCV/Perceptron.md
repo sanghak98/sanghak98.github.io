@@ -244,11 +244,12 @@ def relu_deriv(x):
     return (x > 0).astype(float)
 
 # MLP 클래스
+# 입력층의 노드 개수 : 1개, 은닉층 : 1개 , 은닉층의 노드 개수 : 4개 , 출력층의 노드 개수 : 1개
 class SimpleMLP:
     def __init__(self, input_size=2, hidden_size=4, lr=0.1, epochs=10000):
         self.lr = lr
         self.epochs = epochs
-        # 가중치 초기화
+        # 가중치 초기화개
         self.W1 = np.random.randn(input_size, hidden_size)
         self.b1 = np.zeros((1, hidden_size))
         self.W2 = np.random.randn(hidden_size, 1)
@@ -339,6 +340,6 @@ plt.title("Loss Over Time (XOR Gate)")
 plt.grid(True)
 plt.show()
 ```
->![alt text](../../assets/img/opencv/perceptron/xor_mlp_result.png)예상결과<br/>
+>![alt text](../../assets/img/opencv/perceptron/xor_mlp_result.png)예1상결과<br/>
 ![alt text](../../assets/img/opencv/perceptron/xor_mlp_d_b.png)게이트 결정 결계 시각화<br/>
-![alt text](../../assets/img/opencv/perceptron/xor_loss.png)손실시각화
+![alt text](../../assets/img/opencv/perceptron/xor_loss.png)손실 시각화
