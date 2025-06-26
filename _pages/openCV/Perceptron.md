@@ -12,32 +12,61 @@ thumbnail: "/assets/img/thumbnail/opencv.png"
 import numpy as np
 import matplotlib.pyplot as plt
 
+# --- 1. 모델 구조 (Model Architecture) ---
+# Perceptron 클래스 정의: 단층 퍼셉트론의 구조와 학습 매개변수를 초기화합니다.
 class Perceptron:
-  def __init__(self, input_size, lr=0.1, epochs=10):
-    self.weights = np.zeros(input_size)
-    self.bias = 0
-    self.lr = lr
-    self.epochs = epochs
-    self.errors = []
+    def __init__(self, input_size, lr=0.1, epochs=10000):
+        # 가중치 초기화: 입력 크기만큼의 0으로 구성된 배열 (각 입력 특성에 대응)
+        self.weights = np.zeros(input_size)
+        # 편향(bias) 초기화: 단일 값
+        self.bias = 0
+        # 학습률(learning rate)과 에폭(epochs) 수 초기화
+        self.lr = lr
+        self.epochs = epochs
+        # 에폭별 총 오차 (잘못 분류된 샘플 수)를 저장할 리스트
+        self.errors = []
 
-  def activation(self, x):
-    return np.where(x> 0, 1, 0)
+    # --- 2. 활성화 함수 (Activation Function) ---
+    # 계단 함수 (Step Function): 이진 분류에 사용되는 선형 활성화 함수
+    # 입력 x가 0보다 크면 1, 아니면 0을 반환합니다.
+    def activation(self, x):
+        return np.where(x > 0, 1, 0)
 
-  def predict(self, x ):
-    linear_output = np.dot(x, self.weights) + self.bias
-    return self.activation(linear_output)
+    # --- 3. 예측 (순전파 - Forward Propagation) ---
+    # 주어진 입력에 대해 퍼셉트론의 최종 출력을 계산합니다.
+    def predict(self, x):
+        # 가중치와 입력의 내적 (선형 결합) + 편향
+        linear_output = np.dot(x, self.weights) + self.bias
+        # 활성화 함수를 적용하여 최종 예측값 반환
+        return self.activation(linear_output)
 
-  def train(self, X, y):
-    for epoch in range(self.epochs):
-      total_error = 0
-      for xi, target in zip(X, y):
-        prediction = self.predict(xi)
-        update = self.lr * (target - prediction)
-        self.weights += update * xi
-        self.bias += update
-        total_error += int(update != 0.0)
-      self.errors.append(total_error)
-      print(f"Epoch {epoch+1}/{self.epochs}, Errors: {total_error}")
+    # --- 4. 학습 알고리즘 (Training Algorithm) ---
+    # 퍼셉트론 학습 규칙 (Perceptron Learning Rule)을 사용하여 가중치와 편향을 업데이트합니다.
+    def train(self, X, y):
+        # 지정된 에폭(epoch) 수만큼 반복 학습
+        for epoch in range(self.epochs):
+            total_error = 0 # 현재 에폭에서 잘못 분류된 샘플 수를 세기 위한 변수
+
+            # 모든 학습 데이터 샘플에 대해 예측 및 가중치 업데이트 수행
+            for xi, target in zip(X, y):
+                prediction = self.predict(xi) # 현재 입력에 대한 예측값 계산
+                
+                # 가중치 및 편향 업데이트 양 계산
+                # (목표값 - 예측값) * 학습률. 예측이 틀렸을 경우에만 0이 아닌 값을 가집니다.
+                update = self.lr * (target - prediction)
+                
+                # 가중치 업데이트: 오차와 입력값에 비례하여 조정
+                self.weights += update * xi
+                # 편향 업데이트: 오차에 비례하여 조정
+                self.bias += update
+                
+                # 업데이트가 발생했는지 (즉, 예측이 틀렸는지) 확인하여 total_error에 추가
+                total_error += int(update != 0.0) # 0.0이 아니면 (업데이트가 있었다면) 1을 더함
+            
+            # 현재 에폭의 총 오차 (잘못 분류된 샘플 수)를 저장
+            self.errors.append(total_error)
+            # 현재 에폭과 총 오차를 출력 (학습 진행 상황 모니터링)
+            print(f"Epoch {epoch + 1}/{self.epochs} - Total Error: {total_error}")  
 
 # 결정 경계 시각화
 from matplotlib.colors import ListedColormap
@@ -225,76 +254,124 @@ plot_decision_boundary(X_and, y_and, ppn_and)
 ```
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.colors import ListedColormap
 
-# XOR 데이터셋
-X_xor = np.array([[0,0],[0,1],[1,0],[1,1]])
-y_xor = np.array([[0],[1],[1],[0]])  # 2D로 reshape
-
-# 활성화 함수
-def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
-
-def sigmoid_deriv(x):
-    return sigmoid(x) * (1 - sigmoid(x))
-
-def relu(x):
-    return np.maximum(0, x)
-
-def relu_deriv(x):
-    return (x > 0).astype(float)
-
-# MLP 클래스
-# 입력층의 노드 개수 : 1개, 은닉층 : 1개 , 은닉층의 노드 개수 : 4개 , 출력층의 노드 개수 : 1개
-class SimpleMLP:
-    def __init__(self, input_size=2, hidden_size=4, lr=0.1, epochs=10000):
+# --- 1. 모델 구조 (Model Architecture) ---
+# MLP 클래스 정의: 신경망의 전체 구조와 학습 매개변수를 초기화합니다.
+class MLP:
+    def __init__(self, input_size, hidden_size, output_size, lr=0.05, epochs=50000):
+        # 학습률(learning rate)과 에폭(epochs) 수 초기화
         self.lr = lr
         self.epochs = epochs
-        # 가중치 초기화개
-        self.W1 = np.random.randn(input_size, hidden_size)
-        self.b1 = np.zeros((1, hidden_size))
-        self.W2 = np.random.randn(hidden_size, 1)
-        self.b2 = np.zeros((1, 1))
-        self.losses = []
+        # 에폭별 총 오차를 저장할 리스트
+        self.errors = []
 
+        # 가중치 초기화: 입력층 -> 은닉층
+        # np.random.randn()으로 작은 난수로 초기화하여 학습 초기에 기울기 소실/폭주 방지
+        self.weights_input_hidden = np.random.randn(input_size, hidden_size)
+        # 은닉층 편향 초기화: 0으로 초기화
+        self.bias_hidden = np.zeros((1, hidden_size))
+
+        # 가중치 초기화: 은닉층 -> 출력층
+        self.weights_hidden_output = np.random.randn(hidden_size, output_size)
+        # 출력층 편향 초기화: 0으로 초기화
+        self.bias_output = np.zeros((1, output_size))
+
+    # --- 2. 활성화 함수 (Activation Function) ---
+    # 시그모이드(Sigmoid) 함수: 비선형성을 도입하여 복잡한 패턴 학습 가능하게 함
+    def sigmoid(self, x):
+        # np.clip으로 입력값을 제한하여 np.exp() 계산 시 발생할 수 있는 오버플로우(overflow) 방지
+        x = np.clip(x, -500, 500)
+        # 시그모이드 함수 정의: 1 / (1 + e^-x). 출력값이 0과 1 사이
+        return 1 / (1 + np.exp(-x))
+
+    # 시그모이드 함수의 미분 (기울기 계산): 역전파(Backpropagation)에 필수
+    # f'(x) = f(x) * (1 - f(x)) 임을 활용 (여기서 x는 이미 시그모이드 함수를 통과한 값)
+    def sigmoid_derivative(self, x):
+        return x * (1 - x)
+
+    # --- 3. 예측 (순전파 - Forward Propagation) ---
+    # 주어진 입력에 대해 신경망의 최종 출력을 계산
+    def predict(self, x):
+        # 입력 x를 (1, input_size) 형태의 2차원 배열로 변환하여 행렬 연산 준비
+        x = x.reshape(1, -1)
+
+        # 1. 입력층 -> 은닉층 계산
+        # 입력 x와 input_hidden 가중치 행렬의 내적(dot product) 후 은닉층 편향을 더함
+        hidden_input = np.dot(x, self.weights_input_hidden) + self.bias_hidden
+        # 은닉층 활성화: 시그모이드 함수를 통과시켜 비선형성을 부여
+        hidden_output = self.sigmoid(hidden_input)
+
+        # 2. 은닉층 -> 출력층 계산
+        # 은닉층 출력과 hidden_output 가중치 행렬의 내적 후 출력층 편향을 더함
+        output_input = np.dot(hidden_output, self.weights_hidden_output) + self.bias_output
+        # 출력층 활성화: 시그모이드 함수를 통과시켜 최종 출력 생성
+        output = self.sigmoid(output_input)
+        
+        # 예측 결과를 스칼라 값 (단일 숫자)으로 반환
+        return output[0, 0]
+
+    # --- 4. 학습 알고리즘 (Training Algorithm) ---
+    # 순전파(Forward Propagation) 및 역전파(Backward Propagation)를 포함
     def train(self, X, y):
+        # 목표 레이블 y를 (데이터 개수, 1) 형태로 변환하여 행렬 연산 준비
+        y = y.reshape(-1, 1)
+
+        # 지정된 에폭(epoch) 수만큼 반복 학습
         for epoch in range(self.epochs):
-            # 순전파
-            z1 = X @ self.W1 + self.b1
-            a1 = relu(z1)
-            z2 = a1 @ self.W2 + self.b2
-            a2 = sigmoid(z2)
+            total_error = 0 # 현재 에폭의 총 오차를 계산하기 위한 변수
 
-            # 손실 계산 (binary cross-entropy)
-            loss = -np.mean(y * np.log(a2 + 1e-8) + (1 - y) * np.log(1 - a2 + 1e-8))
-            self.losses.append(loss)
+            # 모든 학습 데이터 샘플에 대해 순전파 및 역전파 수행
+            for xi, target in zip(X, y):
+                # 단일 입력 xi와 목표값 target을 2차원 배열로 변환 (행렬 연산 준비)
+                xi = xi.reshape(1, -1)     # 예: (1, 2)
+                target = target.reshape(1, -1) # 예: (1, 1)
 
-            # 역전파
-            dz2 = a2 - y
-            dW2 = a1.T @ dz2
-            db2 = np.sum(dz2, axis=0, keepdims=True)
+                # --- 4-1. 순방향 전파 (Forward Pass): 각 층의 입력 및 출력 값 저장 ---
+                # 은닉층 계산
+                # 입력 xi와 입력-은닉 가중치 행렬의 내적 후 은닉층 편향을 더함 (가중 합)
+                hidden_input = np.dot(xi, self.weights_input_hidden) + self.bias_hidden
+                # 활성화 함수인 시그모이드 함수를 통과하여 은닉층의 출력 생성
+                hidden_output = self.sigmoid(hidden_input)
 
-            da1 = dz2 @ self.W2.T
-            dz1 = da1 * relu_deriv(z1)
-            dW1 = X.T @ dz1
-            db1 = np.sum(dz1, axis=0, keepdims=True)
+                # 출력층 계산
+                # 은닉층 출력과 은닉-출력 가중치 행렬의 내적 후 출력층 편향을 더함 (가중 합)
+                output_input = np.dot(hidden_output, self.weights_hidden_output) + self.bias_output
+                # 활성화 함수를 통과하여 최종 출력 생성
+                output = self.sigmoid(output_input)
 
-            # 파라미터 업데이트
-            self.W1 -= self.lr * dW1
-            self.b1 -= self.lr * db1
-            self.W2 -= self.lr * dW2
-            self.b2 -= self.lr * db2
+                # 오류 계산: MSE(Mean Squared Error)를 사용하여 예측과 정답 사이의 오차 계산
+                error = target - output
+                # 현재 샘플의 오차 제곱을 총 오차에 더함 (손실 함수)
+                total_error += np.sum(error ** 2)
 
-            # 로그 출력
-            if epoch % 1000 == 0:
-                print(f"Epoch {epoch}, Loss: {loss:.4f}")
+                # --- 4-2. 역방향 전파 (Backward Pass): 오류를 역전파하여 기울기 계산 ---
+                # 1. 출력층의 오류 기울기(델타) 계산: (오차 * 출력층 활성화 함수의 미분값)
+                delta_output = error * self.sigmoid_derivative(output)
+                
+                # 2. 은닉층의 오류 기울기(델타) 계산 (★★핵심★★)
+                # 출력층의 델타를 은닉층 -> 출력층 가중치(self.weights_hidden_output.T)를 통해 역방향으로 전파
+                hidden_error = np.dot(delta_output, self.weights_hidden_output.T)
+                # 전파된 오차에 은닉층 활성화 함수의 미분값을 곱하여 최종 은닉층 델타 계산
+                delta_hidden = hidden_error * self.sigmoid_derivative(hidden_output)
 
-    def predict(self, X):
-        z1 = X @ self.W1 + self.b1
-        a1 = relu(z1)
-        z2 = a1 @ self.W2 + self.b2
-        a2 = sigmoid(z2)
-        return (a2 > 0.5).astype(int)
+                # --- 4-3. 가중치 & 편향 업데이트: 계산된 기울기를 사용하여 업데이트 ---
+                # 은닉층 -> 출력층 가중치 업데이트
+                # hidden_output.T (은닉층 출력의 전치)와 delta_output의 행렬 곱을 학습률과 곱하여 가중치 조정
+                self.weights_hidden_output += self.lr * np.dot(hidden_output.T, delta_output)
+                # 출력층 편향 업데이트
+                self.bias_output += self.lr * delta_output
+
+                # 입력층 -> 은닉층 가중치 업데이트
+                # xi.T (입력의 전치)와 delta_hidden의 행렬 곱을 학습률과 곱하여 가중치 조정
+                self.weights_input_hidden += self.lr * np.dot(xi.T, delta_hidden)
+                # 은닉층 편향 업데이트
+                self.bias_hidden += self.lr * delta_hidden
+
+            # 에폭별 총 오차를 저장
+            self.errors.append(total_error)
+            # 1000 에폭마다 현재 오차 출력 (학습 진행 상황 모니터링)
+            if (epoch + 1) % 1000 == 0:
+                print(f"Epoch {epoch+1}/{self.epochs} - Total Error: {total_error:.6f}")
 
 # XOR 학습
 mlp_xor = SimpleMLP()
