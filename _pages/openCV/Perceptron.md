@@ -340,6 +340,6 @@ plt.title("Loss Over Time (XOR Gate)")
 plt.grid(True)
 plt.show()
 ```
->![alt text](../../assets/img/opencv/perceptron/xor_mlp_result.png)예1상결과<br/>
+>![alt text](../../assets/img/opencv/perceptron/xor_mlp_result.png)예상결과<br/>
 ![alt text](../../assets/img/opencv/perceptron/xor_mlp_d_b.png)게이트 결정 결계 시각화<br/>
 ![alt text](../../assets/img/opencv/perceptron/xor_loss.png)손실 시각화
