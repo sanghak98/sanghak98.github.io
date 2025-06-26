@@ -40,7 +40,7 @@ class Perceptron:
       print(f"Epoch {epoch+1}/{self.epochs}, Errors: {total_error}")
 
 # 결정 경계 시각화
-from matplotlib.colors import ListedColormap화
+from matplotlib.colors import ListedColormap
 
 def plot_decision_boundary(X, y, model):
   cmap_light = ListedColormap(['#FFAAAA','#AAAAFF'])
