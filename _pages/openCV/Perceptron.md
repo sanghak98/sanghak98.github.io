@@ -1,5 +1,6 @@
 ---
 title: "Perceptron"
+date: "2025-06-25"
 thumbnail: "/assets/img/thumbnail/opencv.png"
 ---
 
