@@ -219,3 +219,8 @@ plot_decision_boundary(X_and, y_and, ppn_and)
 
 >Early Stopping<br/>
 - 검증 손실이 더 이상 개선되지 않으면 학습을 조기 종료.
+
+**XOR Gate by MLP**
+>![alt text](../../assets/img/opencv/perceptron/xor_mlp_result.png)예상결과<br/>
+![alt text](../../assets/img/opencv/perceptron/xor_mlp_d_b.png)게이트 결정 결계 시각화<br/>
+![alt text](../../assets/img/opencv/perceptron/xor_loss.png)Loss 시각화
