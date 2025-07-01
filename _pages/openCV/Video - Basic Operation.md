@@ -8,7 +8,7 @@ thumbnail: "/assets/img/thumbnail/opencv.png"
 ---
 **비디오 파일 캡쳐**
 ```
-import numpy as np쳐
+import numpy as np
 import cv2
 
 # Read from the recorded video file
