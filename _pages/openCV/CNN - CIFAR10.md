@@ -102,8 +102,7 @@ Epochs : 60<br/>
 Batch_size : 256<br/>
 
 >Learning_rate 조절<br/>
-Dropout 추가<br/>
-(0.15 / 0.15 / 0.3)<br/>
+Dropout 추가<br/>(0.15 / 0.15 / 0.3)<br/>
 BatchNormalization 추가<br/>
 
 >![alt text](../../assets/img/opencv/cnn/adam/3_4.png)모델 학습<br/>
@@ -117,8 +116,7 @@ Epochs : 60<br/>
 Batch_size : 128<br/>
 
 >Learning_rate 조절<br/>
-Dropout 추가<br/>
-(0.15 / 0.15 / 0.3)<br/>
+Dropout 추가<br/>(0.15 / 0.15 / 0.3)<br/>
 BatchNormalization 추가<br/>
 
 >![alt text](../../assets/img/opencv/cnn/adam/3_3.png)모델 학습<br/>
