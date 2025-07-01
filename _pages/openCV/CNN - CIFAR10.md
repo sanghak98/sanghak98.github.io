@@ -101,7 +101,7 @@ Batch_size : 128
 Epochs : 60<br/>
 Batch_size : 256<br/>
 
->Learning_rate 조절<br/>
+>Learning_rate 조절<br/>(0.0001 -> 0.0005)<br/>
 Dropout 추가<br/>(0.15 / 0.15 / 0.3)<br/>
 BatchNormalization 추가<br/>
 
@@ -115,7 +115,7 @@ BatchNormalization 추가<br/>
 Epochs : 60<br/>
 Batch_size : 128<br/>
 
->Learning_rate 조절<br/>
+>Learning_rate 조절<br/>(0.0001 -> 0.0005)<br/>
 Dropout 추가<br/>(0.15 / 0.15 / 0.3)<br/>
 BatchNormalization 추가<br/>
 
