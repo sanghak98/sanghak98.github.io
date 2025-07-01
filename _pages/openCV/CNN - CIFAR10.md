@@ -127,6 +127,10 @@ BatchNormalization 추가<br/>
 제공된 실험 결과를 종합해 볼 때, 최적의 CNN 모델은 ADAM 옵티마이저를 사용하고 LEARNING_RATE = 0.0005, EPOCHS = 60, BATCH_SIZE = 128의 하이퍼파라미터 조건을 가졌을 때 나타났습니다. 이 모델은 layers.Dropout (0.15 / 0.15 / 0.3)과 layers.BatchNormalization을 추가하여 성능을 향상시켰습니다.
 해당 조건에서 Training Accuracy는 약 0.85 이상, Validation Accuracy는 약 0.75 이상으로 수렴하며 안정적인 학습 곡선을 보였습니다. Training Loss와 Validation Loss 또한 60 에포크 동안 꾸준히 감소하며 낮은 값을 유지했습니다. 특히, Validation Accuracy 그래프가 다른 설정에 비해 더 높은 안정성과 최종 정확도를 보였습니다.
 
+|Optimizer|Learning rate|Epochs|Batch size|Dropout|BatchNormalization|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|Adam|0.0005|60|128|0.15 / 0.15 / 0.3| 있음 
+
 < 하이퍼파라미터별 분석 >
 
 OPTIMIZER:
