@@ -108,28 +108,28 @@ thumbnail: "/assets/img/thumbnail/opencv.png"
 
 1.2. 중요 파라미터 설정 (Hyperparameter Settings)
 
->데이터 증강 (ImageDataGenerator):
+># 데이터 증강 (ImageDataGenerator):
 - rescale=1./255: 이미지 픽셀 값을 [0, 255]에서 [0, 1] 범위로 정규화합니다. 이는 신경망 학습에 필수적입니다.
 >
 - validation_split=0.2: 전체 데이터셋의 20%를 검증 데이터로 분할합니다.
 >
 - rotation_range=90, width_shift_range=0.1, height_shift_range=0.1, shear_range=0.1, zoom_range=0.1, horizontal_flip=True, fill_mode='nearest': 이러한 파라미터들은 데이터 증강(Data Augmentation)을 위한 설정입니다. 제한된 데이터셋의 크기를 효과적으로 늘리고 모델의 일반화 성능을 향상시키기 위해 사용됩니다. 이미지를 회전, 이동, 확대/축소, 반전시키는 등 다양한 변형을 주어 모델이 실제 환경에서 나타날 수 있는 다양한 상황에 강인하게 만듭니다.
 
->옵티마이저 (Adam(learning_rate=1e-4)):
+>## 옵티마이저 (Adam(learning_rate=1e-4)):
 - Adam 옵티마이저: Adagrad, RMSprop의 장점을 결합한 효율적인 경사 하강법 변형으로, 보편적으로 좋은 성능을 보여줍니다.
 >
 - 학습률 (1e-4, 즉 0.0001): 비교적 작은 학습률을 사용했습니다. 전이 학습 시 사전 학습된 가중치를 미세 조정할 때, 큰 학습률은 학습된 특징을 망가뜨릴 수 있으므로, 작은 학습률을 사용하는 것이 일반적입니다.
 
->손실 함수 (loss='categorical_crossentropy'):
+>### 손실 함수 (loss='categorical_crossentropy'):
 - 다중 클래스 분류 문제에 적합한 손실 함수입니다. 모델의 예측 확률 분포와 실제 레이블의 원-핫 인코딩 사이의 차이를 측정합니다. class_mode='categorical'과 함께 사용됩니다.
 
->평가 지표 (metrics=['accuracy']):
+>#### 평가 지표 (metrics=['accuracy']):
 - 모델의 성능을 평가할 주요 지표로 '정확도(accuracy)'를 사용했습니다. 이는 올바르게 분류된 샘플의 비율을 나타냅니다.
 
->에포크 (epochs=50):
+>##### 에포크 (epochs=50):
 - 모델이 전체 훈련 데이터를 50번 반복하여 학습하도록 설정했습니다.
 
->배치 크기 (batch_size=32):
+>###### 배치 크기 (batch_size=32):
 - 한 번의 가중치 업데이트에 사용되는 데이터 샘플의 개수를 32개로 설정했습니다.
 
 >콜백 (EarlyStopping, ModelCheckpoint):
@@ -141,7 +141,7 @@ thumbnail: "/assets/img/thumbnail/opencv.png"
 
 2.1. 훈련 및 검증 정확도/손실 그래프 분석
 
->훈련/검증 정확도 (Training and Validation Accuracy) 그래프:
+>#### 훈련/검증 정확도 (Training and Validation Accuracy) 그래프:
 - 초기 학습 (Epoch 0-10): 훈련 정확도와 검증 정확도 모두 빠르게 상승합니다. 특히 훈련 정확도는 0.2에서 0.7-0.8 근처까지 빠르게 증가합니다. 검증 정확도도 0.4에서 0.7-0.8 수준으로 따라 올라갑니다. 이 단계에서는 모델이 기본적인 특징을 빠르게 학습하고 있음을 보여줍니다.
 >
 - 중기 학습 (Epoch 10-30): 훈련 정확도는 꾸준히 상승하여 0.85-0.9 수준에 도달합니다. 검증 정확도 또한 비슷한 추세로 상승하여 0.8-0.9 사이를 오갑니다. 이 구간에서 검증 정확도의 변동폭이 다소 크게 나타나는데, 이는 데이터 증강, 드롭아웃, 또는 배치 크기 등으로 인한 학습의 불안정성일 수 있습니다.
