@@ -21,18 +21,19 @@ thumbnail: "/assets/img/thumbnail/opencv.png"
 
 <br/>
 
-**그래프 설정**
+**결과 시각화**
 >![alt text](../../assets/img/opencv/cnn/rmsprop/4.png)
 
 <br/>
 
 **데이터 수 확인**
 >![alt text](../../assets/img/opencv/cnn/rmsprop/8.png)
->![alt text](../../assets/img/opencv/cnn/rmsprop/9.png)
+![alt text](../../assets/img/opencv/cnn/rmsprop/9.png)
 
 <br/>
 
-**분류 결과 확인**
+**학습 이미지 예시**
+>![alt text](../../assets/img/opencv/cnn/rmsprop/6.png)
 >![alt text](../../assets/img/opencv/cnn/rmsprop/7.png)
 
 # 분석
