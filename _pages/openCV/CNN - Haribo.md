@@ -87,11 +87,11 @@ thumbnail: "/assets/img/thumbnail/opencv.png"
 
 >base_model = MobileNetV2(input_shape=(96, 96, 3), include_top=False, weights='imagenet'):
 - MobileNetV2 사용: 이 모델은 모바일 및 임베디드 장치에 최적화된 경량 CNN 아키텍처입니다. 효율적인 연산으로 좋은 성능을 내는 것으로 알려져 있습니다.
-
+>
 - input_shape=(96, 96, 3): 입력 이미지의 크기를 96x96 픽셀로 설정했습니다. 3은 RGB 채널을 의미합니다. 이는 MobileNetV2가 요구하는 일반적인 입력 크기 중 하나입니다.
-
+>
 - include_top=False: MobileNetV2의 최상단(Top) 부분, 즉 ImageNet 데이터셋의 1000개 클래스를 분류하는 Dense 레이어를 제거했습니다. 이는 우리의 하리보 젤리 분류 문제에 맞게 새로운 분류 레이어를 추가하기 위함입니다.
-
+>
 - weights='imagenet': ImageNet 데이터셋으로 사전 학습된 가중치를 사용합니다. 이것이 바로 전이 학습의 핵심입니다. MobileNetV2가 이미 수백만 장의 다양한 이미지에서 일반적인 시각적 특징(에지, 질감, 모양 등)을 학습했기 때문에, 우리 모델은 이러한 유용한 특징 추출 능력을 물려받아 작은 데이터셋으로도 좋은 성능을 낼 수 있습니다.
 
 >base_model.trainable = False:
@@ -99,11 +99,11 @@ thumbnail: "/assets/img/thumbnail/opencv.png"
 
 >새로운 분류 헤드 추가:
 - layers.GlobalAveragePooling2D(): MobileNetV2의 출력 피처 맵(feature map)을 단일 벡터로 평활화(flatten)합니다. 이는 단순히 Flatten하는 것보다 파라미터 수를 줄여 과대적합을 완화하는 효과가 있습니다. 각 피처 맵의 평균값을 취합니다.
-
+>
 - layers.Dense(128, activation='relu'): 128개의 뉴런을 가진 완전 연결(Dense) 레이어를 추가했습니다. relu (Rectified Linear Unit) 활성화 함수는 비선형성을 도입하여 모델이 더 복잡한 패턴을 학습할 수 있게 합니다.
-
+>
 - layers.Dropout(0.5): 드롭아웃(Dropout)은 과대적합을 방지하기 위한 중요한 규제(regularization) 기법입니다. 학습 중 무작위로 뉴런의 50%를 비활성화하여, 모델이 특정 뉴런에 과도하게 의존하는 것을 막고 일반화 성능을 향상시킵니다.
-
+>
 - layers.Dense(len(class_names), activation='softmax'): 최종 출력 레이어입니다. len(class_names)는 하리보 젤리의 종류 수에 해당하며, softmax 활성화 함수는 각 클래스에 대한 확률 분포를 출력합니다. 모든 클래스의 확률 합은 1이 됩니다.
 
 1.2. 중요 파라미터 설정 (Hyperparameter Settings)
