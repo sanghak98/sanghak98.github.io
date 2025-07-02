@@ -79,11 +79,11 @@ thumbnail: "/assets/img/thumbnail/opencv.png"
 
 # 고찰
 ---
-**1. 모델의 중요한 부분 및 파라미터 설정**
+### 1. 모델의 중요한 부분 및 파라미터 설정
 
 전이 학습(Transfer Learning) 기법을 활용하여 하리보 젤리 이미지를 분류하는 CNN 모델을 구축했습니다. 특히, 사전 학습된 MobileNetV2 모델을 기반으로 한 점이 핵심입니다.
 
-### 1.1. 모델 아키텍처 (Model Architecture)
+#### 1.1. 모델 아키텍처 (Model Architecture)
 
 >#### base_model = MobileNetV2(input_shape=(96, 96, 3), include_top=False, weights='imagenet'):
 - MobileNetV2 사용: 이 모델은 모바일 및 임베디드 장치에 최적화된 경량 CNN 아키텍처입니다. 효율적인 연산으로 좋은 성능을 내는 것으로 알려져 있습니다.
@@ -106,7 +106,7 @@ thumbnail: "/assets/img/thumbnail/opencv.png"
 >
 - layers.Dense(len(class_names), activation='softmax'): 최종 출력 레이어입니다. len(class_names)는 하리보 젤리의 종류 수에 해당하며, softmax 활성화 함수는 각 클래스에 대한 확률 분포를 출력합니다. 모든 클래스의 확률 합은 1이 됩니다.
 
-### 1.2. 중요 파라미터 설정 (Hyperparameter Settings)
+#### 1.2. 중요 파라미터 설정 (Hyperparameter Settings)
 
 >#### 데이터 증강 (ImageDataGenerator):
 - rescale=1./255: 이미지 픽셀 값을 [0, 255]에서 [0, 1] 범위로 정규화합니다. 이는 신경망 학습에 필수적입니다.
@@ -137,9 +137,9 @@ thumbnail: "/assets/img/thumbnail/opencv.png"
 >
 - ModelCheckpoint('best_model.h5', save_best_only=True): 모델 체크포인트 콜백입니다. 학습 중 검증 성능이 가장 좋은 모델(val_loss가 가장 낮은 모델)을 'best_model.h5' 파일로 자동 저장합니다.
 
-**2. 실행 결과 분석**
+### 2. 실행 결과 분석
 
-### 2.1. 훈련 및 검증 정확도/손실 그래프 분석
+#### 2.1. 훈련 및 검증 정확도/손실 그래프 분석
 
 >#### 훈련/검증 정확도 (Training and Validation Accuracy) 그래프:
 - 초기 학습 (Epoch 0-10): 훈련 정확도와 검증 정확도 모두 빠르게 상승합니다. 특히 훈련 정확도는 0.2에서 0.7-0.8 근처까지 빠르게 증가합니다. 검증 정확도도 0.4에서 0.7-0.8 수준으로 따라 올라갑니다. 이 단계에서는 모델이 기본적인 특징을 빠르게 학습하고 있음을 보여줍니다.
@@ -157,7 +157,7 @@ thumbnail: "/assets/img/thumbnail/opencv.png"
 >
 - 후기 학습 (Epoch 30-45): 훈련 손실은 0.2 이하로 매우 낮게 유지되며, 검증 손실도 0.2-0.3 수준에서 안정화됩니다. 검증 손실이 훈련 손실과 큰 차이를 보이지 않고, 마지막에는 0.2711까지 떨어지는 것으로 보아 모델이 과대적합 없이 잘 수렴했음을 알 수 있습니다.
 
-### 2.2. 훈련 로그 분석 (텍스트 출력)
+#### 2.2. 훈련 로그 분석 (텍스트 출력)
 
 훈련 로그는 각 에포크별 훈련 정확도(accuracy), 훈련 손실(loss), 검증 정확도(val_accuracy), 검증 손실(val_loss)을 상세하게 보여줍니다. 몇 가지 주목할 만한 지점들을 살펴보겠습니다.
 
@@ -182,7 +182,7 @@ thumbnail: "/assets/img/thumbnail/opencv.png"
 >#### Epoch 46/50: accuracy: 0.9239, loss: 0.2026, val_accuracy: 0.8969, val_loss: 0.2711
 - 최종적으로 기록된 에포크입니다. 아마 이 이후로 조기 종료 조건이 만족되어 학습이 멈췄을 것입니다. 최종적으로 best_model.h5에는 val_loss가 가장 낮았던 에포크 (로그상으로는 Epoch 41의 val_loss: 0.2673 또는 그 근방)의 가중치가 저장되었을 것입니다.
 
-### 2.3. 전반적인 성능 평가
+#### 2.3. 전반적인 성능 평가
 
 설계한 CNN 모델은 하리보 젤리 모양 분류에 대해 매우 성공적인 학습을 수행했습니다.
 
