@@ -38,7 +38,7 @@ thumbnail: "/assets/img/thumbnail/ai_doctor.png"
 >• 따라서 우리는 간편한 카메라 기반으로 작동하고, 사용자의 행동 개입 없이도 진단이 가능한 경량 AI 진단 시스템을 제안한다.
 
 ## 시스템 구성 및 주요 기능
-[진단 프로세스]
+
     1. 카메라 실행
 
         ◦ 사용자 피부에 카메라를 위치시키면, 실시간 영상이 분석됨
@@ -80,23 +80,11 @@ thumbnail: "/assets/img/thumbnail/ai_doctor.png"
     • 기존 모델 대비 메모리 사용량과 연산량을 줄이면서도, 정확도는 유지하여 빠르고 신뢰성 있는 진단이 가능하게 하였습니다.
 
 ## 사용 기술 및 개발 환경
-항목
-기술
-언어
-Python
-Dart
-프레임워크
-TensorFlow, TensorFlow Lite ( 머신러닝 )
-Flutter ( 앱 개발 )
-Flask ( 웹 개발 )
 
-모델
-Gemma3:1b (LLM 기반)
-MobilenetV2
-YOLO / Fast - RCNN
-인터페이스
-웹, 키오스크, 모바일 앱 등 (확장 가능)
-
-포맷
-ONNX
-h5
+>|항목|기술|
+>|:---:|:---:|
+>|언어|Python<br/>Dart|
+>|프레임워크|TensorFlow, TensorFlow Lite ( 머신러닝 )<br/>Flutter ( 앱 개발 )<br/>Flask ( 웹 개발 )|
+>|모델|Gemma3:1b (LLM 기반)<br/>MobilenetV2<br/>YOLO / Fast-RCNN|
+>|인터페이스|웹, 키오스크, 모바일 앱 등|
+>|포맷|.onnx<br/>.h5|
