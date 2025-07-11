@@ -7,6 +7,8 @@ thumbnail: "/assets/img/thumbnail/ai_doctor.png"
 # Dataset
 ---
 
+![alt text](../../../assets/img/opencv/dataset.png)
+
 |영어 명칭|한국어 명칭|설명|중증도/위험성|Dataset|
 |:---:|:---:|:---:|:---:|:---:|
 |Actinic Keratosis|광선 각화증|자외선 노출로 인한 전암성 병변|⚠️ 중등도 (암으로 진행 가능성 있음)|X|
