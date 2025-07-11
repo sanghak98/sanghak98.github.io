@@ -1,5 +1,5 @@
 ---
-title: "CNN - Haribo"
+title: "Haribo_Classification"
 date: "2025-07-01"
 thumbnail: "/assets/img/thumbnail/opencv.png"
 ---
