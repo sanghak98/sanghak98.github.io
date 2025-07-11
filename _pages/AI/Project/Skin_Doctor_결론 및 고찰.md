@@ -1,5 +1,5 @@
 ---
-title: "Skin_Doctor"
+title: "Skin_Doctor_결론 및 고찰"
 date: "2025-07-01"
 thumbnail: "/assets/img/thumbnail/opencv.png"
 ---
