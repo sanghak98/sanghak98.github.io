@@ -1,7 +1,7 @@
 ---
 title: "Skin_Doctor_트러블슈팅"
-date: "2025-07-01"
-thumbnail: "/assets/img/thumbnail/opencv.png"
+date: "2025-07-11"
+thumbnail: "/assets/img/thumbnail/ai_doctor.png"
 ---
 팅
 # Code
