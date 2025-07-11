@@ -4,7 +4,7 @@ date: "2025-07-11"
 thumbnail: "/assets/img/thumbnail/ai_doctor.png"
 ---
 
-# Code
+# Dataset
 ---
 
 |영어 명칭|한국어 명칭|설명|중증도/위험성|Dataset|
