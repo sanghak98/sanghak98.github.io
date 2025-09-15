@@ -1,5 +1,5 @@
 ---
-title: "RISC-V 32bit CPU"
+title: "RV32I_CPU_프로젝트 결과"
 date: "2025-08-25"
 thumbnail: "assets/img/thumbnail/cpu.jpg"
 ---

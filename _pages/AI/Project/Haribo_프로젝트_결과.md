@@ -1,5 +1,5 @@
 ---
-title: "Haribo_Classification"
+title: "Haribo_프로젝트 결과"
 date: "2025-07-01"
 thumbnail: "/assets/img/thumbnail/opencv.png"
 ---

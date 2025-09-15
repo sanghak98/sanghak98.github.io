@@ -1,5 +1,5 @@
 ---
-title: "System Verilog"
+title: "FFT_추가자료"
 date: "2025-08-04"
 thumbnail: "/assets/img/thumbnail/sv.jpg"
 ---
